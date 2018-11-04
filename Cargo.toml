@@ -1,0 +1,6 @@
+[package]
+name = "p2p_client"
+version = "1.0.0"
+authors = ["Joren Van Onder <joren.vanonder@gmail.com>"]
+
+[dependencies]
