@@ -197,7 +197,6 @@ pub fn run(config: Config) {
 
         let msg_type = String::from_utf8(buf[..4].to_vec()).unwrap();
 
-        // Only respond to SEND, probably also need MSG\0 or something
         println!("received {} from {}", msg_type, src);
 
         if msg_type.starts_with("SEND") {
