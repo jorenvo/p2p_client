@@ -1,0 +1,37 @@
+** Description
+See [[https://jorenvo.github.io/notes/nat_traversal/][NAT traversal]] for a high level description of how this works.
+** Usage
+With [[https://github.com/jorenvo/p2p_broker][p2p_broker]] running on my_p2p_broker.com register as
+=my_username=:
+
+#+BEGIN_EXAMPLE
+$ cargo run my_p2p_broker.com my_username
+#+END_EXAMPLE
+** Example output
+The following example uses the following IPs:
+
+- broker: 216.58.194.206
+- this_client: 172.217.0.46
+- other_client: 98.138.219.232
+
+This assumes =other_client= already registered. The flow is the same,
+he just types =listen<RET>=. =this_client= registers and connects to
+=other_client=:
+
+#+BEGIN_EXAMPLE
+Client running on 0.0.0.0:63326
+Registering as this_client with 216.58.194.206:63325...
+My public IP: 172.217.0.46
+
+Listing users currently connected to 216.58.194.206:63325...
+other_client               98.138.219.232:63326
+
+Type "listen<RET>" to listen for incoming connections, type "<username><RET>" to connect to it.
+other_client
+punching hole in own NAT to 98.138.219.232:63326
+
+Listening for incoming messages...
+received MSG from 98.138.219.232:63326
+hello this_client!
+> hello other_client!
+#+END_EXAMPLE
